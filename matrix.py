@@ -5,7 +5,7 @@ from os import path
 
 class Matrix:
     def __init__(self):
-        pass
+        self.mx_list = []
 
     def load(self, file_name, separator=' '):
         self.file_to_read = file_name
@@ -15,7 +15,6 @@ class Matrix:
             return False
         else:
             lines = []
-            self.mx_list = []
             with open(self.file_to_read, 'r') as file:
                 lines = file.readlines()
             for line in lines:
@@ -62,10 +61,8 @@ class Matrix:
         elif self.str_t == 0 and self.int_t >= 0:
             return True
 
-    def save(self, file_name, mx='mx_list', separator=' '):
-        matrix_to_save = mx
-        if mx == 'mx_list':
-            matrix_to_save = self.mx_list
+    def save(self, file_name, separator=' '):
+        matrix_to_save = self.mx_list
         with open(file_name, 'w') as file:
             for i in range(len(matrix_to_save)):
                 for a in range(len(matrix_to_save[i])):
