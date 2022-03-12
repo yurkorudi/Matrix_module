@@ -11,7 +11,7 @@ class Matrix:
         self.file_to_read = file_name
         self.separator = separator
         if not path.exists(self.file_to_read):
-            print('Wrong file name, file doesnt exist')
+            #print('Wrong file name, file doesnt exist')
             return False
         else:
             lines = []
@@ -27,19 +27,22 @@ class Matrix:
             for i in range(len(self.mx_list)):
                 try:
                     if len(self.mx_list[i]) != len(self.mx_list[i+1]):
-                        print('''File you loaded isn't matrix, chek all columns and rows should be same''')
+                        #print('''File you loaded isn't matrix, chek all columns and rows should be same''')
                         return False
                 except IndexError:
                     pass
-            print('Here is your matrix: ',  self.mx_list)
+            #print('Here is your matrix: ',  self.mx_list)
             file.close()
             return False
 
     def size(self):
-        lenght = len(self.mx_list[0])
-        height = len(self.mx_list)
-        print("Size: ", lenght, 'x', height)
-        answer = (lenght, height)
+        try:
+            lenght = len(self.mx_list[0])
+            height = len(self.mx_list)
+            #print("Size: ", lenght, 'x', height)
+            answer = (lenght, height)
+        except AttributeError:
+            answer = (0, 0)
         return answer
 
     def is_digital(self):
@@ -55,18 +58,17 @@ class Matrix:
                     self.str_t += 1
         
         if self.int_t > 0 and self.str_t > 0:
-            print("You have non-digital matrix")
+            return False
         elif self.str_t == 0 and self.int_t >= 0:
-            print("You have digital matrix")
-        return False
+            return True
 
-    def save(self, file_name):
+    def save(self, file_name, separator=' '):
         matrix_to_save = self.mx_list
         with open(file_name, 'w') as file:
             for i in range(len(matrix_to_save)):
                 for a in range(len(matrix_to_save[i])):
                     file.write(matrix_to_save[i][a])
-                    file.write(' ')
+                    file.write(separator)
                 file.write('\n')
         file.close()
         return False
