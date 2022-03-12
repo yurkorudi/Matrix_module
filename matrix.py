@@ -33,7 +33,7 @@ class Matrix:
                     pass
             #print('Here is your matrix: ',  self.mx_list)
             file.close()
-            return False
+            return True
 
     def size(self):
         try:
@@ -62,12 +62,14 @@ class Matrix:
         elif self.str_t == 0 and self.int_t >= 0:
             return True
 
-    def save(self, file_name, separator=' '):
-        matrix_to_save = self.mx_list
+    def save(self, file_name, mx='mx_list', separator=' '):
+        matrix_to_save = mx
+        if mx == 'mx_list':
+            matrix_to_save = self.mx_list
         with open(file_name, 'w') as file:
             for i in range(len(matrix_to_save)):
                 for a in range(len(matrix_to_save[i])):
-                    file.write(matrix_to_save[i][a])
+                    file.write(str(matrix_to_save[i][a]))
                     file.write(separator)
                 file.write('\n')
         file.close()

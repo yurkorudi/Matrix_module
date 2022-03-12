@@ -1,6 +1,12 @@
 from matrix import Matrix
 mx = Matrix()
-mx.load('file_3_test.txt', ' ')
+a = mx.load('file_3_test.txt', ' ')
+if a:
+    print('Loading completed')
+else:
+    print('Loading failed')
 a = mx.is_digital()
 if a:
     print("You have digital matrix")
+else:
+    print('You have non-digital matrix')

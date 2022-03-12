@@ -1,3 +1,7 @@
 from matrix import Matrix 
 mx = Matrix()
-mx.load('file_1_test.txt', ' ')
+a = mx.load('file_1_test.txt', ' ')
+if a:
+    print('Loading completed')
+else:
+    print('Loading failed')
