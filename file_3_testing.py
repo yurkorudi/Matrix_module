@@ -1,4 +1,4 @@
 from matrix import Matrix
 mx = Matrix()
-mx.type('file_3_test.txt', ' ')
-mx.type('file3.txt', ', ')
+mx.is_digital('file_3_test.txt', ' ')
+
