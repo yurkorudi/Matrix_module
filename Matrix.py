@@ -1,12 +1,11 @@
 import math
-from new_matrix import New_matrix
 from os import path
 
 
 
 class Matrix:
     def __init__(self):
-        self.mx = []
+        pass
 
     def load(self, file_name, separator=' '):
         self.file_to_read = file_name
@@ -36,11 +35,6 @@ class Matrix:
             file.close()
             return False
 
-    def write(self):
-        a = New_matrix()
-        a.write_new_mx(self)
-        return False
-
     def size(self):
         lenght = len(self.mx_list[0])
         height = len(self.mx_list)
@@ -48,8 +42,7 @@ class Matrix:
         answer = (lenght, height)
         return answer
 
-    def is_digital(self, file_name, separator=' '):
-        self.load(file_name, separator)
+    def is_digital(self):
         a = self.mx_list
         self.int_t = 0
         self.str_t = 0
@@ -67,8 +60,8 @@ class Matrix:
             print("You have digital matrix")
         return False
 
-    def save(self, file_name, mx):
-        matrix_to_save = mx
+    def save(self, file_name):
+        matrix_to_save = self.mx_list
         with open(file_name, 'w') as file:
             for i in range(len(matrix_to_save)):
                 for a in range(len(matrix_to_save[i])):
