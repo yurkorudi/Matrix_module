@@ -63,14 +63,18 @@ class Matrix:
 
     def save(self, file_name, separator=' '):
         matrix_to_save = self.mx_list
-        with open(file_name, 'w') as file:
-            for i in range(len(matrix_to_save)):
-                for a in range(len(matrix_to_save[i])):
-                    file.write(str(matrix_to_save[i][a]))
-                    file.write(separator)
-                file.write('\n')
-        file.close()
-        return False
+        try:
+            with open(file_name, 'w') as file:
+                for i in range(len(matrix_to_save)):
+                    for a in range(len(matrix_to_save[i])):
+                        file.write(str(matrix_to_save[i][a]))
+                        file.write(separator)
+                    file.write('\n')
+            file.close()
+            return True
+        except:
+            return False
+            
 
 
 
