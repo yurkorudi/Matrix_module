@@ -1,3 +1,3 @@
-from Matrix import Matrix as mx
-
-mx.type(mx, 'file_2_test.txt', ' ')
+from matrix import Matrix 
+mx = Matrix()
+mx.type('file_2_test.txt', ' ')

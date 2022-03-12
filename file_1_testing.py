@@ -1,3 +1,3 @@
-from Matrix import Matrix as mx
-
-mx.load(mx, 'file_1_test.txt', ' ')
+from matrix import Matrix 
+mx = Matrix()
+mx.load('file_1_test.txt', ' ')
