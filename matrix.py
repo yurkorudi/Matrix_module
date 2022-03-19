@@ -19,6 +19,8 @@ class Matrix:
                 lines = file.readlines()
             for line in lines:
                 line = line.replace('\n', '')
+                if 'False' in line:
+                    line = line.replace('None', '')
                 self.mx_list.append(line.split(self.separator))
             for i in range(len(self.mx_list)):
                 while('' in self.mx_list[i]):
@@ -74,6 +76,26 @@ class Matrix:
             return True
         except:
             return False
+
+
+
+    def empty_matrix(self, file_name, x_size=0, y_size=0, separator=' '):
+        x = x_size
+        y = y_size
+        try:
+            for i in range(y):
+                for a in range(x):
+                    self.mx_list.append('None')
+            self.save(file_name, separator)
+            return True
+        except:
+            return False
+    
+        
+
+    def value_by_coords(self, x, y):
+        pass
+
             
 
 
