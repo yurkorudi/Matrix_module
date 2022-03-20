@@ -19,12 +19,14 @@ class Matrix:
                 lines = file.readlines()
             for line in lines:
                 line = line.replace('\n', '')
-                if 'False' in line:
-                    line = line.replace('None', '')
                 self.mx_list.append(line.split(self.separator))
             for i in range(len(self.mx_list)):
                 while('' in self.mx_list[i]):
                     self.mx_list[i].remove('')  
+            for i in range(len(self.mx_list)):
+                for a in range(len(self.mx_list[i])):
+                    if self.mx_list[i][a] == 'None':
+                        self.mx_list[i][a] = '*'
             for i in range(len(self.mx_list)):
                 try:
                     if len(self.mx_list[i]) != len(self.mx_list[i+1]):
@@ -77,26 +79,33 @@ class Matrix:
         except:
             return False
 
-
-
     def empty_matrix(self, file_name, x_size=0, y_size=0, separator=' '):
         x = x_size
         y = y_size
         try:
             for i in range(y):
+                self.mx_list.append([])
                 for a in range(x):
-                    self.mx_list.append('None')
+                    self.mx_list[i].append('None')
             self.save(file_name, separator)
             return True
         except:
             return False
     
-        
+    def add_value_by_coords(self, x, y, value):
+        try:
+            self.mx_list[y-1][x-1] = value
+            return True
+        except:
+            return False
 
-    def value_by_coords(self, x, y):
-        pass
+    def get_value_by_coords(self, x, y):
+        try:
+            return self.mx_list[y-1][x-1]
+        except:
+            return False
 
-            
+    
 
 
 
