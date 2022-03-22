@@ -1,4 +1,2 @@
-matrix.cpython-39
-matrix.cpython-310
-new_matrix.cpython-310
-*.pyc
+__pycache__/matrix.cpython-310.pyc
+__pycache__/new_matrix.cpython-310.pyc
