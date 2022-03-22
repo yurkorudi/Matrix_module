@@ -106,23 +106,23 @@ class Matrix:
             return False
 
     def pretty_print(self):
-        a = self.is_digital()
-        if a:
-            for i in range(len(self.mx_list)):
-                a = str(self.mx_list[i])
-                a = a.replace('[', '')
-                a = a.replace(']', '')
-                a = a.replace("'", '')
-                a = a.replace(',', '')
-                print(a)
-        else:
-            for i in range(len(self.mx_list)):
-                a = str(self.mx_list[i])
-                a = a.replace('[', '')
-                a = a.replace(']', '')
-                a = a.replace("'", '')
-                a = a.replace(',', '')
-                print(a)
+        line = '                              '
+        max_lenght = 0
+        for i in self.mx_list:
+            for a in i:
+                if len(str(a)) > max_lenght:
+                    max_lenght = len(str(a))
+
+        for i in self.mx_list:
+            line = '                              '
+            pos = 0
+            for a in i:
+                line = line[:pos * (max_lenght+1)] + str(a) + ' ' + line[pos*(max_lenght+1):]
+                pos += 1
+            print(line)
+
+
+
 
 
 
