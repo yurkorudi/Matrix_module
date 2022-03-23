@@ -1,3 +1,4 @@
+import os
 
 class Matrix:
     def __init__(self):
@@ -6,33 +7,33 @@ class Matrix:
     def load(self, file_name, separator=' '):
         self.file_to_read = file_name
         self.separator = separator
-        if not path.exists(self.file_to_read):
-            #print('Wrong file name, file doesnt exist')
-            return False
-        else:
-            lines = []
-            with open(self.file_to_read, 'r') as file:
-                lines = file.readlines()
-            for line in lines:
-                line = line.replace('\n', '')
-                self.mx_list.append(line.split(self.separator))
-            for i in range(len(self.mx_list)):
-                while('' in self.mx_list[i]):
-                    self.mx_list[i].remove('')  
-            for i in range(len(self.mx_list)):
-                for a in range(len(self.mx_list[i])):
-                    if self.mx_list[i][a] == 'None':
-                        self.mx_list[i][a] = '*'
-            for i in range(len(self.mx_list)):
-                try:
-                    if len(self.mx_list[i]) != len(self.mx_list[i+1]):
-                        #print('''File you loaded isn't matrix, chek all columns and rows should be same''')
-                        return False
-                except IndexError:
-                    pass
-            #print('Here is your matrix: ',  self.mx_list)
-            file.close()
-            return True
+        # if not os.path.exists(self.file_to_read):
+        #     #print('Wrong file name, file doesnt exist')
+        #     return False
+        # else:
+        lines = []
+        with open(self.file_to_read, 'r') as file:
+            lines = file.readlines()
+        for line in lines:
+            line = line.replace('\n', '')
+            self.mx_list.append(line.split(self.separator))
+        for i in range(len(self.mx_list)):
+            while('' in self.mx_list[i]):
+                self.mx_list[i].remove('')  
+        for i in range(len(self.mx_list)):
+            for a in range(len(self.mx_list[i])):
+                if self.mx_list[i][a] == 'None':
+                    self.mx_list[i][a] = '*'
+        for i in range(len(self.mx_list)):
+            try:
+                if len(self.mx_list[i]) != len(self.mx_list[i+1]):
+                    #print('''File you loaded isn't matrix, chek all columns and rows should be same''')
+                    return False
+            except IndexError:
+                pass
+        #print('Here is your matrix: ',  self.mx_list)
+        file.close()
+        return True
 
     def size(self):
         try:
