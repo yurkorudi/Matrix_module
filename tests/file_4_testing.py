@@ -1,19 +1,17 @@
-import sys
-import os
-sys.path.insert(0, os.path.dirname(sys.path[0]))
-
-from matrix import Matrix
+print("File:  " + __file__ + " -   testing")
+from lib.matrix import Matrix
 import random
-m = Matrix()
-
-
+mx = Matrix()
 for i in range(4):
-    m.mx_list.append([])
+    mx.mx_list.append([])
     for a in range(3):
-        m.mx_list[i].append(random.randint(0,9))
-
-
-m.save("file0.txt")
-m.save("file1.txt", " ")
-m.save("file2.txt", ",")
-print("Done")
+        mx.mx_list[i].append(random.randint(0,9))
+a = mx.save("file0.txt")
+a = mx.save("file1.txt", " ")
+a = mx.save("file2.txt", ",")
+if a:
+    print("Saving copleted")
+    print("TEST PASSED")
+else:
+    print("TEST FAILED")
+print("END TEST File:  " + __file__)

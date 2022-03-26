@@ -1,17 +1,17 @@
-import sys
-import os
-sys.path.insert(0, os.path.dirname(sys.path[0]))
-
-
-from matrix import Matrix 
+print("File:  " + __file__ + " -   testing")
+from lib.matrix import Matrix 
 mx = Matrix()
-a = mx.load('file_2_test.txt', ' ')
+a = mx.load('./tests/file_2_test.txt', ' ')
 if a:
-    print('Loading completed')
+    print('LOADING COMPLETED')
+    a = mx.is_digital()
+    if a:
+        print("You have digital matrix")
+    else:
+        print('You have non-digital matrix')
+    print('TEST - PASSED')
 else:
-    print('Loading failed')
-a = mx.is_digital()
-if a:
-    print("You have digital matrix")
-else:
-    print('You have non-digital matrix')
+
+    print('LOADING FAILED')
+
+print("END TEST File:  " + __file__)

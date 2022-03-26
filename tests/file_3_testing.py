@@ -1,9 +1,17 @@
-import sys
-import os
-sys.path.insert(0, os.path.dirname(sys.path[0]))
-
-
-from matrix import Matrix
+print("File:  " + __file__ + " -   testing")
+from lib.matrix import Matrix
 mx = Matrix()
-mx.load('file_3_test.txt', ' ')
-mx.pretty_print()
+a = mx.load('./tests/file_3_test.txt', ' ')
+if a:
+    print("LOADING COMPLETED")
+    b = mx.pretty_print()
+    if b:
+        print("TEST PASSED")
+    else:
+        print("TEST FAILED")
+else:
+    print("LOADING FAILED")
+    print("TEST FAILED")
+
+print("END TEST File:  " + __file__)
+    
