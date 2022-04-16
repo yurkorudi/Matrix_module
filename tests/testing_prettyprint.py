@@ -2,7 +2,7 @@ print("File:  " + __file__ + " -   testing")
 
 from lib.matrix import Matrix
 mx = Matrix()
-a = mx.load('file1.txt', ' ')
+a = mx.load('./tests/file_prettyprint_test.txt', ' ')
 if a:
     print("Loading completed")
     b = mx.pretty_print()
