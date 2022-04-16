@@ -5,10 +5,10 @@ mx = Matrix()
 a = mx.load('./tests/file_1_test.txt', ' ')
 if a:
     print('Loading completed')
-    print('TEST - PASSED')
+    print('TEST - FAILED')
 else:
     print('Loading failed')
-    print('TEST - FAILED')
+    print('TEST - PASSED')
 
 
 print("END TEST File:  " + __file__)
