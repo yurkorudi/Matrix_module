@@ -19,4 +19,6 @@ import tests.testing_prettyprint
 import tests.file_get_testing
 
 import tests.file_add_testing
+
+import tests.file_adding_matrix_testing
 # end

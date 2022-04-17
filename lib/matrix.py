@@ -4,7 +4,7 @@ class Matrix:
     def __init__(self):
         self.mx_list = []
 
-    def load(self, file_name, separator=' '):
+    def load(self, file_name, separator=' ', result_return=False):
         self.file_to_read = file_name
         self.separator = separator
         if not os.path.exists(self.file_to_read):
@@ -31,9 +31,19 @@ class Matrix:
                         return False
                 except IndexError:
                     pass
+
+            for i in range(len(self.mx_list)):
+                for a in range(len(self.mx_list[i])):
+                    try:
+                        self.mx_list[i][a] = int(i)
+                    except:
+                        pass
             #print('Here is your matrix: ',  self.mx_list)
             file.close()
-            return True
+            if result_return:
+                return self.mx_list
+            else:
+                return True
 
     def size(self):
         try:
@@ -96,6 +106,7 @@ class Matrix:
         except:
             return False
 
+
     def get_value_by_coords(self, x, y):
         try:
             return self.mx_list[y-1][x-1]
@@ -123,6 +134,31 @@ class Matrix:
             return False
         
 
+
+    def add_matrixes(self, mx_to_add):
+        if self.is_digital == True and mx_to_add.is_digital == True:
+            if self.size == mx_to_add.size:
+                for i in self.mx_list:
+                    for a in i:
+                        for b in mx_to_add:
+                            for c in b:
+                                self.mx_list[i][a] = self.mx_list[i][a] + mx_to_add[b][c]
+            print(self.mx_list)
+            
+            # else:
+            #     return False
+
+
+        elif self.is_digital ==False and mx_to_add.is_digital == False:
+            if self.size == mx_to_add.size:
+                pass
+            else:
+                return False
+
+
+
+        else:
+            return False
 
 
 
