@@ -136,8 +136,9 @@ class Matrix:
 
 
     def add_matrixes(self, mx_to_add):
-        if self.is_digital == True and mx_to_add.is_digital == True:
-            if self.size == mx_to_add.size:
+        
+        if self.is_digital() == True and mx_to_add.is_digital() == True:
+            if self.size() == mx_to_add.size():
                 for i in self.mx_list:
                     for a in i:
                         for b in mx_to_add:
