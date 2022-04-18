@@ -139,11 +139,11 @@ class Matrix:
         
         if self.is_digital() == True and mx_to_add.is_digital() == True:
             if self.size() == mx_to_add.size():
-                for i in self.mx_list:
-                    for a in i:
-                        for b in mx_to_add:
-                            for c in b:
-                                self.mx_list[i][a] = self.mx_list[i][a] + mx_to_add[b][c]
+                for i in range(len(self.mx_list)):
+                    for a in range(len(self.mx_list[i])):
+                        for b in range(len(mx_to_add.mx_list)):
+                            for c in range(len(mx_to_add.mx_list[b])):
+                                self.mx_list[i][a] = self.mx_list[i][a] + mx_to_add.mx_list[b][c]
             print(self.mx_list)
             
             # else:
@@ -155,8 +155,6 @@ class Matrix:
                 pass
             else:
                 return False
-
-
 
         else:
             return False
