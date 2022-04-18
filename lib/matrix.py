@@ -106,7 +106,6 @@ class Matrix:
         except:
             return False
 
-
     def get_value_by_coords(self, x, y):
         try:
             return self.mx_list[y-1][x-1]
@@ -133,8 +132,6 @@ class Matrix:
         except:
             return False
         
-
-
     def add_matrixes(self, mx_to_add):
         
         if self.is_digital() == True and mx_to_add.is_digital() == True:
@@ -149,7 +146,6 @@ class Matrix:
             # else:
             #     return False
 
-
         elif self.is_digital ==False and mx_to_add.is_digital == False:
             if self.size == mx_to_add.size:
                 pass
@@ -158,6 +154,3 @@ class Matrix:
 
         else:
             return False
-
-
-
