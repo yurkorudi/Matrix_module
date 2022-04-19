@@ -1,4 +1,5 @@
 import os
+from re import A
 
 class Matrix:
     def __init__(self):
@@ -24,21 +25,16 @@ class Matrix:
                 for a in range(len(self.mx_list[i])):
                     if self.mx_list[i][a] == 'None':
                         self.mx_list[i][a] = '*'
-            for i in range(len(self.mx_list)):
-                try:
-                    if len(self.mx_list[i]) != len(self.mx_list[i+1]):
-                        #print('''File you loaded isn't matrix, chek all columns and rows should be same''')
-                        return False
-                except IndexError:
-                    pass
+            for i in range(len(self.mx_list)-1):
+                if len(self.mx_list[i]) != len(self.mx_list[i+1]):
+                    return False
+                    
 
-            for i in range(len(self.mx_list)):
-                for a in range(len(self.mx_list[i])):
-                    try:
-                        self.mx_list[i][a] = int(i)
-                    except:
-                        pass
-            #print('Here is your matrix: ',  self.mx_list)
+            if self.is_digital() == True:
+                for i in range(len(self.mx_list)):
+                    for a in range(len(self.mx_list[i])):
+                        self.mx_list[i][a] = int(self.mx_list[i][a])
+
             file.close()
             if result_return:
                 return self.mx_list
@@ -49,7 +45,6 @@ class Matrix:
         try:
             lenght = len(self.mx_list[0])
             height = len(self.mx_list)
-            #print("Size: ", lenght, 'x', height)
             answer = (lenght, height)
         except:
             return False
@@ -131,26 +126,33 @@ class Matrix:
                 return True
         except:
             return False
-        
+
     def add_matrixes(self, mx_to_add):
-        
         if self.is_digital() == True and mx_to_add.is_digital() == True:
             if self.size() == mx_to_add.size():
                 for i in range(len(self.mx_list)):
                     for a in range(len(self.mx_list[i])):
-                        for b in range(len(mx_to_add.mx_list)):
-                            for c in range(len(mx_to_add.mx_list[b])):
-                                self.mx_list[i][a] = self.mx_list[i][a] + mx_to_add.mx_list[b][c]
-            print(self.mx_list)
+                                self.mx_list[i][a] = self.mx_list[i][a] + mx_to_add.mx_list[i][a]
+                return True
             
-            # else:
-            #     return False
-
-        elif self.is_digital ==False and mx_to_add.is_digital == False:
-            if self.size == mx_to_add.size:
-                pass
+        elif self.is_digital == False and mx_to_add.is_digital == False:
+            if self.size() == mx_to_add.size():
+                for i in range(len(self.mx_list)):
+                    for a in range(len(self.mx_list[i])):
+                                self.mx_list[i][a] = self.mx_list[i][a] + mx_to_add.mx_list[i][a]
+                return True
             else:
                 return False
-
         else:
             return False
+
+    def subtrack_matrixes(self, mx_to_subt):
+        if self.is_digital() == True and mx_to_subt.is_digital() == True:
+            if self.size() == mx_to_subt.size():
+                for i in range(len(self.mx_list)):
+                    for a in range(len(self.mx_list[i])):
+                                self.mx_list[i][a] = self.mx_list[i][a] - mx_to_subt.mx_list[i][a]
+                return True
+
+        elif self.is_digital == False and mx_to_subt.is_digital == False:
+            pass
