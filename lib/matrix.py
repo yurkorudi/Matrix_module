@@ -62,9 +62,9 @@ class Matrix:
                 except ValueError:
                     self.str_t += 1
         
-        if self.int_t > 0 and self.str_t > 0:
+        if self.int_t > 0 and self.str_t <= 0:
             return False
-        elif self.str_t == 0 and self.int_t >= 0:
+        elif self.str_t >= 0 and self.int_t <= 0:
             return True
 
     def save(self, file_name, separator=' '):
@@ -135,7 +135,7 @@ class Matrix:
                                 self.mx_list[i][a] = self.mx_list[i][a] + mx_to_add.mx_list[i][a]
                 return True
             
-        elif self.is_digital == False and mx_to_add.is_digital == False:
+        elif self.is_digital() == False and mx_to_add.is_digital() == False:
             if self.size() == mx_to_add.size():
                 for i in range(len(self.mx_list)):
                     for a in range(len(self.mx_list[i])):
@@ -155,4 +155,12 @@ class Matrix:
                 return True
 
         elif self.is_digital == False and mx_to_subt.is_digital == False:
-            pass
+            if self.size() == mx_to_subt.size():
+                for i in range(len(self.mx_list)):
+                    for a in range(len(self.mx_list[i])):
+                                self.mx_list[i][a] = self.mx_list[i][a] - mx_to_subt.mx_list[i][a]
+                return True
+            else:
+                return False
+        else:
+            return False
