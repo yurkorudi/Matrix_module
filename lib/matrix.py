@@ -160,7 +160,7 @@ class Matrix:
                 for i in range(len(self.mx_list)):
                     for a in range(len(self.mx_list[i])):
                         if mx_to_subt.mx_list[i][a] in self.mx_list[i][a]:
-                                self.mx_list[i][a] = self.mx_list[i][a] - mx_to_subt.mx_list[i][a]
+                                self.mx_list[i][a] = self.mx_list[i][a].replace(mx_to_subt.mx_list[i][a], '')
                 return True
             else:
                 return False
