@@ -20,5 +20,7 @@ sys.path.append(os.getcwd() + '/lib')
 
 # import tests.file_add_testing
 
-import tests.file_adding_matrix_testing
+# import tests.file_adding_matrix_testing
+
+import tests.file_subtracking_matrix_testing
 # end

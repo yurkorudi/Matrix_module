@@ -1,5 +1,4 @@
 import os
-from re import A
 
 class Matrix:
     def __init__(self):
@@ -62,10 +61,12 @@ class Matrix:
                 except ValueError:
                     self.str_t += 1
         
-        if self.int_t > 0 and self.str_t <= 0:
+        if self.str_t > 0 and self.int_t == 0:
             return False
-        elif self.str_t >= 0 and self.int_t <= 0:
+        elif self.int_t > 0 and self.str_t == 0:
             return True
+        else:
+            return False
 
     def save(self, file_name, separator=' '):
         matrix_to_save = self.mx_list
@@ -154,10 +155,11 @@ class Matrix:
                                 self.mx_list[i][a] = self.mx_list[i][a] - mx_to_subt.mx_list[i][a]
                 return True
 
-        elif self.is_digital == False and mx_to_subt.is_digital == False:
+        elif self.is_digital() == False and mx_to_subt.is_digital() == False:
             if self.size() == mx_to_subt.size():
                 for i in range(len(self.mx_list)):
                     for a in range(len(self.mx_list[i])):
+                        if mx_to_subt.mx_list[i][a] in self.mx_list[i][a]:
                                 self.mx_list[i][a] = self.mx_list[i][a] - mx_to_subt.mx_list[i][a]
                 return True
             else:

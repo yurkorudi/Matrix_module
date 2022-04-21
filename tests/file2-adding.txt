@@ -1,2 +1,2 @@
-a b
-s d
+s s
+p l
