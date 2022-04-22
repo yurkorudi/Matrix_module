@@ -6,7 +6,7 @@ mx.load('./tests/file_2_test.txt', ' ')
 a = mx.add_value_by_coords(1,1,9)
 if a:
     print("Test - PASSED")
-    print(mx.mx_list)
+    mx.pretty_print()
 else: 
     print("Test - FAILED")
 

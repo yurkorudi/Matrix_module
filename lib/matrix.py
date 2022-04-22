@@ -4,7 +4,7 @@ class Matrix:
     def __init__(self):
         self.mx_list = []
 
-    def load(self, file_name, separator=' ', result_return=False):
+    def load(self, file_name, separator=' '):
         self.file_to_read = file_name
         self.separator = separator
         if not os.path.exists(self.file_to_read):
@@ -35,10 +35,7 @@ class Matrix:
                         self.mx_list[i][a] = int(self.mx_list[i][a])
 
             file.close()
-            if result_return:
-                return self.mx_list
-            else:
-                return True
+            return True
 
     def size(self):
         try:
