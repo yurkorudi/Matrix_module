@@ -59,7 +59,7 @@ class Matrix:
                     else:
                         self.str_t += 1
                 else:
-                    self.str_t += 1
+                    self.int_t += 1
         if self.int_t > 0 and self.str_t == 0:
             return True
         elif self.str_t > 0 and self.int_t == 0:
@@ -167,4 +167,3 @@ class Matrix:
             return False
 
 
-            
