@@ -52,16 +52,18 @@ class Matrix:
         self.str_t = 0
         for i in range(len(a)):
             for b in range(len(a[i])):
-                try:
-                    if int(a[i][b]):
+                if type(a[i][b]) == str:
+                    x = a[i][b].isdigit()
+                    if x:
                         self.int_t += 1
-                except ValueError:
+                    else:
+                        self.str_t += 1
+                else:
                     self.str_t += 1
-        
-        if self.str_t > 0 and self.int_t == 0:
-            return False
-        elif self.int_t > 0 and self.str_t == 0:
+        if self.int_t > 0 and self.str_t == 0:
             return True
+        elif self.str_t > 0 and self.int_t == 0:
+            return False
         else:
             return False
 
@@ -163,3 +165,6 @@ class Matrix:
                 return False
         else:
             return False
+
+
+            
