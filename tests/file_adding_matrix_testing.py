@@ -14,7 +14,7 @@ else:
 mx = Matrix()
 a = mx.load('./tests/file1-adding_int.txt', ' ')
 mx2 = Matrix()
-b = mx2.load('./tests/file2-adding_ints.txt', ' ')
+b = mx2.load('./tests/file2-adding_int.txt', ' ')
 a = mx.add_matrixes(mx2)
 mx.pretty_print()
 if not a:
