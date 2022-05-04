@@ -24,14 +24,16 @@ class Matrix:
                 for a in range(len(self.mx_list[i])):
                     if self.mx_list[i][a] == 'None':
                         self.mx_list[i][a] = '*'
-            for i in range(len(self.mx_list)):
-                try:
-                    if len(self.mx_list[i]) != len(self.mx_list[i+1]):
-                        #print('''File you loaded isn't matrix, chek all columns and rows should be same''')
-                        return False
-                except IndexError:
-                    pass
-            #print('Here is your matrix: ',  self.mx_list)
+            for i in range(len(self.mx_list)-1):
+                if len(self.mx_list[i]) != len(self.mx_list[i+1]):
+                    return False
+                    
+
+            if self.is_digital() == True:
+                for i in range(len(self.mx_list)):
+                    for a in range(len(self.mx_list[i])):
+                        self.mx_list[i][a] = int(self.mx_list[i][a])
+
             file.close()
             return True
 
@@ -39,7 +41,6 @@ class Matrix:
         try:
             lenght = len(self.mx_list[0])
             height = len(self.mx_list)
-            #print("Size: ", lenght, 'x', height)
             answer = (lenght, height)
         except:
             return False
@@ -51,16 +52,20 @@ class Matrix:
         self.str_t = 0
         for i in range(len(a)):
             for b in range(len(a[i])):
-                try:
-                    if int(a[i][b]):
+                if type(a[i][b]) == str:
+                    x = a[i][b].isdigit()
+                    if x:
                         self.int_t += 1
-                except ValueError:
-                    self.str_t += 1
-        
-        if self.int_t > 0 and self.str_t > 0:
-            return False
-        elif self.str_t == 0 and self.int_t >= 0:
+                    else:
+                        self.str_t += 1
+                else:
+                    self.int_t += 1
+        if self.int_t > 0 and self.str_t == 0:
             return True
+        elif self.str_t > 0 and self.int_t == 0:
+            return False
+        else:
+            return False
 
     def save(self, file_name, separator=' '):
         matrix_to_save = self.mx_list
@@ -121,8 +126,44 @@ class Matrix:
             return True
         except:
             return False
-        
 
+    def add_matrixes(self, mx_to_add):
+        if self.is_digital() == True and mx_to_add.is_digital() == True:
+            if self.size() == mx_to_add.size():
+                for i in range(len(self.mx_list)):
+                    for a in range(len(self.mx_list[i])):
+                                self.mx_list[i][a] = self.mx_list[i][a] + mx_to_add.mx_list[i][a]
+                return True
+            
+        elif self.is_digital() == False and mx_to_add.is_digital() == False:
+            if self.size() == mx_to_add.size():
+                for i in range(len(self.mx_list)):
+                    for a in range(len(self.mx_list[i])):
+                                self.mx_list[i][a] = self.mx_list[i][a] + mx_to_add.mx_list[i][a]
+                return True
+            else:
+                return False
+        else:
+            return False
 
+    def subtrack_matrixes(self, mx_to_subt):
+        if self.is_digital() == True and mx_to_subt.is_digital() == True:
+            if self.size() == mx_to_subt.size():
+                for i in range(len(self.mx_list)):
+                    for a in range(len(self.mx_list[i])):
+                                self.mx_list[i][a] = self.mx_list[i][a] - mx_to_subt.mx_list[i][a]
+                return True
+
+        elif self.is_digital() == False and mx_to_subt.is_digital() == False:
+            if self.size() == mx_to_subt.size():
+                for i in range(len(self.mx_list)):
+                    for a in range(len(self.mx_list[i])):
+                        if mx_to_subt.mx_list[i][a] in self.mx_list[i][a]:
+                                self.mx_list[i][a] = self.mx_list[i][a].replace(mx_to_subt.mx_list[i][a], '')
+                return True
+            else:
+                return False
+        else:
+            return False
 
 

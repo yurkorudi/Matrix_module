@@ -6,9 +6,9 @@ for i in range(4):
     mx.mx_list.append([])
     for a in range(3):
         mx.mx_list[i].append(random.randint(0,9))
-a = mx.save("file0.txt")
-a = mx.save("file1.txt", " ")
-a = mx.save("file2.txt", ",")
+a = mx.save("./tests/file0.txt")
+a = mx.save("./tests/file1.txt", " ")
+a = mx.save("./tests/file2.txt", ",")
 if a:
     print("Saving copleted")
     print("TEST PASSED")
