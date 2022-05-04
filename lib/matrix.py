@@ -123,7 +123,7 @@ class Matrix:
                     line = line[:pos * (max_lenght+1)] + str(a) + ' ' + line[pos*(max_lenght+1):]
                     pos += 1
                 print(line)
-                return True
+            return True
         except:
             return False
 
