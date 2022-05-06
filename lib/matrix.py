@@ -167,3 +167,39 @@ class Matrix:
             return False
 
 
+    def append_to_all(self, value):
+        if self.is_digital() == True:
+            for i in self.mx_list:
+                for a in i:
+                    a = a + value
+            return True
+        return False
+
+
+    def subtrack_to_all(self, value):
+        if self.is_digital() == True:
+            for i in self.mx_list:
+                for a in i:
+                    a = a - value
+            return True
+        return False
+
+
+    def multiply_to_all(self, value):
+        if self.is_digital() == True:
+            for i in self.mx_list:
+                for a in i:
+                    a = a * value
+            return True
+        return False
+
+        
+    def divis_to_all(self, value):
+        if self.is_digital() == True:
+            for i in self.mx_list:
+                for a in i:
+                    a = a / value
+            return True
+        return False
+
+
