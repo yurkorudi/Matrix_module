@@ -26,6 +26,13 @@ import tests.file_adding_matrix_testing
 
 import tests.file_size_testing
 
-#import tests.file-
+import tests.file_append_testing
+
+import tests.file_subtracking_to_all_testing
+
+import tests.file_multiply_testing
+
+import tests.file_divis_testing
 
 # end
+

@@ -4,8 +4,8 @@ from lib.matrix import Matrix
 mx = Matrix()
 mx.load('./tests/file_size_test.txt', ' ')
 mx.pretty_print()
-
-if mx.append_to_all(2):
+print("____________")
+if mx.multiply_to_all(2):
     mx.pretty_print()
     print("TEST - Passed")
 else:

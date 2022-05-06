@@ -169,36 +169,36 @@ class Matrix:
 
     def append_to_all(self, value):
         if self.is_digital() == True:
-            for i in self.mx_list:
-                for a in i:
-                    a = a + value
+            for i in range(len(self.mx_list)):
+                for a in range(len(self.mx_list[i])):
+                    self.mx_list[i][a] = self.mx_list[i][a] + value
             return True
         return False
 
 
     def subtrack_to_all(self, value):
         if self.is_digital() == True:
-            for i in self.mx_list:
-                for a in i:
-                    a = a - value
+            for i in range(len(self.mx_list)):
+                for a in range(len(self.mx_list[i])):
+                    self.mx_list[i][a] = self.mx_list[i][a] - value
             return True
         return False
 
 
     def multiply_to_all(self, value):
         if self.is_digital() == True:
-            for i in self.mx_list:
-                for a in i:
-                    a = a * value
+            for i in range(len(self.mx_list)):
+                for a in range(len(self.mx_list[i])):
+                    self.mx_list[i][a] = self.mx_list[i][a] * value
             return True
         return False
 
         
     def divis_to_all(self, value):
         if self.is_digital() == True:
-            for i in self.mx_list:
-                for a in i:
-                    a = a / value
+            for i in range(len(self.mx_list)):
+                for a in range(len(self.mx_list[i])):
+                    self.mx_list[i][a] = self.mx_list[i][a] / value
             return True
         return False
 
