@@ -203,3 +203,12 @@ class Matrix:
         return False
 
 
+    def matrix_comparing(self, obg):
+        comp = 0
+        if self.is_digital() == True and obg.is_digital() == True:
+            if self.mx_list == obg.mx_list:
+                return True
+            else:
+                return False
+        else:
+            return False
