@@ -203,3 +203,12 @@ class Matrix:
         return False
 
 
+    def matrix_comparing(self, obg):
+        comp = 0
+        if self.size() == obg.size():
+            if self.mx_list == obg.mx_list:
+                return True
+            else:
+                return False
+        else:
+            return False

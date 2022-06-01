@@ -34,5 +34,11 @@ import tests.file_multiply_testing
 
 import tests.file_divis_testing
 
+import tests.file1_matrix_comparing
+
+import tests.file_last_testing
+
+
+
 # end
 
