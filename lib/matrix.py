@@ -212,3 +212,14 @@ class Matrix:
                 return False
         else:
             return False
+
+
+    def mx_in_mx(self, smaller_mx): 
+        coincidence = 0
+        if self.size() < smaller_mx.size():
+            return False
+        else: 
+            for i in range(len(smaller_mx.mx_list)):
+                
+            
+    
