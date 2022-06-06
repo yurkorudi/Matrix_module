@@ -225,16 +225,14 @@ class Matrix:
             for i in range(len(smaller_mx.mx_list)):
                 for a in range(len(smaller_mx.mx_list[i])):
                     str_sm += str(smaller_mx.mx_list[i][a])
-                    for i in range(len(self.mx_list)):
-                        for a in range(len(self.mx_list[i])):
-                            str_bg += str(self.mx_list[i][a])
-                        if str_sm in str_bg:
-                            coincidence_x += 1
-                        coincidence_y += 1
-                        # print(str_sm)
-                        # print(str_bg)
-                        str_sm = '' 
-                        str_bg = ''
+                for i in range(len(self.mx_list)):
+                    for a in range(len(self.mx_list[i])):
+                        str_bg += str(self.mx_list[i][a])
+                if str_sm in str_bg:
+                    coincidence_x += 1
+                coincidence_y += 1
+                str_sm = '' 
+                str_bg = ''
             if coincidence_x == coincidence_y:
                 return True
             else:
