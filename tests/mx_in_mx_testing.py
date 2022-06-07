@@ -29,9 +29,9 @@ mx2 = Matrix()
 mx2.load('./tests/for_mx_in_mx_test_5.txt', ' ')
 a = mx.mx_in_mx(mx2)
 if a == True:
-    print('Test - PASSED')
+    print('Test 45 - PASSED')
 else:
-    print("Test - FAILED")
+    print("Test 45 - FAILED")
 
 from lib.matrix import Matrix 
 mx = Matrix()
@@ -40,8 +40,8 @@ mx2 = Matrix()
 mx2.load('./tests/for_mx_in_mx_test_7.txt', ' ')
 a = mx.mx_in_mx(mx2)
 if a == True:
-    print('Test - PASSED')
+    print('Test 67 - PASSED')
 else:
-    print("Test - FAILED")
+    print("Test 67 - FAILED")
 
 print("END TEST File:  " + __file__)
