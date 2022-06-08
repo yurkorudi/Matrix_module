@@ -232,8 +232,7 @@ class Matrix:
                             coincidence_x += 1
                         coincidence_y += 1
                         str_bg = ''
-                str_sm = '' 
-                
+                str_sm = ''  
             if coincidence_x == coincidence_y:
                 return True
             else:
@@ -244,7 +243,34 @@ class Matrix:
 
 
 
-    def square_in_mx(self, digit):
-        pass
+    def square_in_mx(self, symbol):
+        symbol = str(symbol)
+        coincidence_x = 0
+        coincidence_y = 0
+        coincidence_row = 0
+        mztrixes = 0
+        big_str = ''
+        for i in self.mx_list:
+            for a in i:
+                big_str += str(a)
+            while True:
+                if symbol in big_str:
+                    coords = big_str.find(symbol)
+                    coincidence_row += 1
+                    big_str = big_str[:coords] + big_str[coords+1:]
+                    break
+                else: 
+                    break
+            coincidence_x += 1
+            coincidence_row = 0
+            big_str = 0
+
+        
+
+
+
+
+
+
 
     
