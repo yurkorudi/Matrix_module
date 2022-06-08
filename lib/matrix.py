@@ -244,9 +244,7 @@ class Matrix:
 
 
 
-
-
-
-    def 
+    def square_in_mx(self, digit):
+        pass
 
     
