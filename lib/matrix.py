@@ -262,7 +262,6 @@ class Matrix:
                 else: 
                     break
             coincidence_x += 1
-            coincidence_row = 0
             big_str = 0
 
         
