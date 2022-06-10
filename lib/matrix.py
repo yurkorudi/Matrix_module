@@ -226,16 +226,50 @@ class Matrix:
                 for a in range(len(smaller_mx.mx_list[i])):
                     str_sm += str(smaller_mx.mx_list[i][a])
                 for i in range(len(self.mx_list)):
-                    for a in range(len(self.mx_list[i])):
-                        str_bg += str(self.mx_list[i][a])
-                if str_sm in str_bg:
-                    coincidence_x += 1
-                coincidence_y += 1
-                str_sm = '' 
-                str_bg = ''
+                    for a in self.mx_list[i]:
+                        str_bg += str(a)
+                        if str_sm in str_bg:
+                            coincidence_x += 1
+                        coincidence_y += 1
+                        str_bg = ''
+                str_sm = ''  
             if coincidence_x == coincidence_y:
                 return True
             else:
                 return False
+
+
+    
+
+
+
+    def square_in_mx(self, symbol):
+        symbol = str(symbol)
+        coincidence_x = 0
+        coincidence_y = 0
+        coincidence_row = 0
+        mztrixes = 0
+        big_str = ''
+        for i in self.mx_list:
+            for a in i:
+                big_str += str(a)
+            while True:
+                if symbol in big_str:
+                    coords = big_str.find(symbol)
+                    coincidence_row += 1
+                    big_str = big_str[:coords] + big_str[coords+1:]
+                    break
+                else: 
+                    break
+            coincidence_x += 1
+            big_str = 0
+
+        
+
+
+
+
+
+
 
     
